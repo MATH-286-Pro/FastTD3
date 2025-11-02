@@ -4,7 +4,7 @@
 #   and will exceed 4090 GRAM limit
 
 python fast_td3/train.py \
-    --env_name Isaac-Velocity-Flat-Unitree-Go2-v0 \
+    --env_name Isaac-Velocity-Flat-Unitree-Go2-Comp-Norm-v0 \
     --exp_name FastTD3 \
     --render_interval 0 \
     --seed 1 \

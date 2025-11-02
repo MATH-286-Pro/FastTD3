@@ -180,6 +180,7 @@ def get_args():
         # IsaacLab Unitree Go2 Task
         # 2025.11.02 Added By Jiajun Hu
         "Isaac-Velocity-Flat-Unitree-Go2-v0": IsaacVelocityFlatUnitreeGo2Args,
+        "Isaac-Velocity-Flat-Unitree-Go2-Comp-Norm-v0": IsaacVelocityFlatUnitreeGo2CompNormArgs,
 
         # MTBench
         "MTBench-meta-world-v2-mt10": MetaWorldMT10Args,
@@ -531,6 +532,14 @@ class IsaacReposeCubeShadowDirectArgs(IsaacLabArgs):
 @dataclass
 class IsaacVelocityFlatUnitreeGo2Args(IsaacLabArgs):
     env_name: str = "Isaac-Velocity-Flat-Unitree-Go2-v0"
+    num_steps: int = 8
+    num_updates: int = 4
+    total_timesteps: int = 50000
+    compile: bool = False  # Disable compile to avoid Triton compilation issues
+
+@dataclass
+class IsaacVelocityFlatUnitreeGo2CompNormArgs(IsaacLabArgs):
+    env_name: str = "Isaac-Velocity-Flat-Unitree-Go2-Comp-Norm-v0"
     num_steps: int = 8
     num_updates: int = 4
     total_timesteps: int = 50000
