@@ -153,6 +153,7 @@ def get_args():
         "h1hand-window-v0": H1HandWindowArgs,
         "h1hand-package-v0": H1HandPackageArgs,
         "h1hand-truck-v0": H1HandTruckArgs,
+
         # MuJoCo Playground
         # NOTE: These tasks are not full list of MuJoCo Playground tasks
         "G1JoystickFlatTerrain": G1JoystickFlatTerrainArgs,
@@ -165,6 +166,7 @@ def get_args():
         "Go1JoystickRoughTerrain": Go1JoystickRoughTerrainArgs,
         "Go1Getup": Go1GetupArgs,
         "CheetahRun": CheetahRunArgs,  # NOTE: Example config for DeepMind Control Suite
+
         # IsaacLab
         # NOTE: These tasks are not full list of IsaacLab tasks
         "Isaac-Lift-Cube-Franka-v0": IsaacLiftCubeFrankaArgs,
@@ -175,6 +177,10 @@ def get_args():
         "Isaac-Velocity-Rough-G1-v0": IsaacVelocityRoughG1Args,
         "Isaac-Repose-Cube-Allegro-Direct-v0": IsaacReposeCubeAllegroDirectArgs,
         "Isaac-Repose-Cube-Shadow-Direct-v0": IsaacReposeCubeShadowDirectArgs,
+        # IsaacLab Unitree Go2 Task
+        # 2025.11.02 Added By Jiajun Hu
+        "Isaac-Velocity-Flat-Unitree-Go2-v0": IsaacVelocityFlatUnitreeGo2Args,
+
         # MTBench
         "MTBench-meta-world-v2-mt10": MetaWorldMT10Args,
         "MTBench-meta-world-v2-mt50": MetaWorldMT50Args,
@@ -519,3 +525,13 @@ class IsaacReposeCubeShadowDirectArgs(IsaacLabArgs):
     total_timesteps: int = 100000
     v_min: float = -500.0
     v_max: float = 500.0
+
+# Unitree Go2 Task
+# 2025.11.02 Added By Jiajun Hu
+@dataclass
+class IsaacVelocityFlatUnitreeGo2Args(IsaacLabArgs):
+    env_name: str = "Isaac-Velocity-Flat-Unitree-Go2-v0"
+    num_steps: int = 8
+    num_updates: int = 4
+    total_timesteps: int = 50000
+    compile: bool = False  # Disable compile to avoid Triton compilation issues

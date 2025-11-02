@@ -68,7 +68,8 @@ def main():
 
     # 模型路径
     # TODO: 修改为你自己的模型路径
-    resume_path = "/home/jiajun_hu/Documents/Robotics/FastTD3/models/Isaac-Velocity-Flat-G1-v0__FastTD3__1_30000.pt"  
+    # resume_path = "/home/ece-486/Documents/Robotics/FastTD3/models/Isaac-Velocity-Flat-G1-v0_FastTD3/2025-11-02_15-13/Isaac-Velocity-Flat-G1-v0__FastTD3__1_45000.pt"
+    resume_path = "/home/ece-486/Documents/Robotics/FastTD3/models/Isaac-Velocity-Flat-Unitree-Go2-v0_FastTD3/2025-11-02_15-42/Isaac-Velocity-Flat-Unitree-Go2-v0__FastTD3__1_45000.pt"  
     print(f"****\n\n[INFO]: Loading model checkpoint from: {resume_path}\n\n****")
 
     log_dir = os.path.dirname(resume_path)
@@ -101,9 +102,6 @@ def main():
         sleep_time = dt - (time.time() - start_time)
         if args_cli.real_time and sleep_time > 0:
             time.sleep(sleep_time)
-
-    # close the simulator
-    env.close()
 
 
 if __name__ == "__main__":

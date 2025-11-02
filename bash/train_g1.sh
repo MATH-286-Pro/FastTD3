@@ -7,5 +7,5 @@ python fast_td3/train.py \
     --exp_name FastTD3 \
     --render_interval 0 \
     --seed 1 \
-    --num_envs 1024 \
+    --num_envs 1024
     # --save_interval 100
