@@ -13,11 +13,12 @@ class IsaacLabEnv:
         device: str,
         num_envs: int,
         seed: int,
+        isheadless: bool = True,
         action_bounds: Optional[float] = None,
     ):
         from isaaclab.app import AppLauncher
 
-        app_launcher = AppLauncher(headless=True, device=device)
+        app_launcher = AppLauncher(headless=isheadless, device=device)
         simulation_app = app_launcher.app
 
         import isaaclab_tasks

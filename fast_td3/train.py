@@ -17,6 +17,7 @@ import math
 import tqdm
 import wandb
 import numpy as np
+import datetime
 
 try:
     # Required for avoiding IsaacGym import error
@@ -53,6 +54,8 @@ except ImportError:
 def main():
     args = get_args()
     print(args)
+
+    timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M")
     run_name = f"{args.env_name}__{args.exp_name}__{args.seed}"
 
     amp_enabled = args.amp and args.cuda and torch.cuda.is_available()
@@ -720,7 +723,7 @@ def main():
                     obs_normalizer,
                     critic_obs_normalizer,
                     args,
-                    f"models/{run_name}_{global_step}.pt",
+                    f"models/{args.env_name}_{args.exp_name}/{timestamp}/{run_name}_{global_step}.pt",
                 )
 
         global_step += 1
@@ -736,7 +739,7 @@ def main():
         obs_normalizer,
         critic_obs_normalizer,
         args,
-        f"models/{run_name}_final.pt",
+        f"models/{args.env_name}_{args.exp_name}/{timestamp}/{run_name}_final.pt",
     )
 
 
