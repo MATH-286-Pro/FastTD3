@@ -10,7 +10,7 @@ import torch
 # add argparse arguments
 parser = argparse.ArgumentParser(description="Train an RL agent with RSL-RL.")
 parser.add_argument("--video", action="store_true", default=False, help="Record videos during training.")
-parser.add_argument("--video_length", type=int, default=200, help="Length of the recorded video (in steps).")
+parser.add_argument("--video_length", type=int, default=500, help="Length of the recorded video (in steps).")
 parser.add_argument("--disable_fabric", action="store_true", default=False, help="Disable fabric and use USD I/O operations.")
 parser.add_argument("--num_envs", type=int, default=None, help="Number of environments to simulate.")
 parser.add_argument("--task", type=str, default=None, help="Name of the task.")
@@ -69,8 +69,9 @@ def main():
     # 模型路径
     # TODO: 修改为你自己的模型路径
     # resume_path = "/home/ece-486/Documents/Robotics/FastTD3/models/Isaac-Velocity-Flat-G1-v0_FastTD3/2025-11-02_15-13/Isaac-Velocity-Flat-G1-v0__FastTD3__1_45000.pt"
-    # resume_path = "/home/ece-486/Documents/Robotics/FastTD3/models/Isaac-Velocity-Flat-Unitree-Go2-v0_FastTD3/2025-11-02_15-42/Isaac-Velocity-Flat-Unitree-Go2-v0__FastTD3__1_45000.pt"  
-    resume_path = "/home/jiajun_hu/Documents/Robotics/FastTD3/models/Isaac-Velocity-Flat-Unitree-Go2-Comp-Norm-v0_FastTD3/2025-11-02_19-39/Isaac-Velocity-Flat-Unitree-Go2-Comp-Norm-v0__FastTD3__1_45000.pt"
+    # resume_path = "/home/jiajun_hu/Documents/Robotics/FastTD3/models/Isaac-Velocity-Flat-Unitree-Go2-v0_FastTD3/2025-11-02_17-07/Isaac-Velocity-Flat-Unitree-Go2-v0__FastTD3__1_95000.pt"  
+    resume_path = "/home/jiajun_hu/Documents/Robotics/FastTD3/models/Isaac-Velocity-Flat-Unitree-Go2-Comp-Norm-v0_FastTD3/2025-11-03_11-02/Isaac-Velocity-Flat-Unitree-Go2-Comp-Norm-v0__FastTD3__1_final.pt"
+    # resume_path = "/home/jiajun_hu/Documents/Robotics/FastTD3/models/Isaac-Velocity-Flat-Unitree-Go2-Comp-Norm-v0_FastTD3/2025-11-02_19-39/Isaac-Velocity-Flat-Unitree-Go2-Comp-Norm-v0__FastTD3__1_45000.pt"
     print(f"****\n\n[INFO]: Loading model checkpoint from: {resume_path}\n\n****")
 
     log_dir = os.path.dirname(resume_path)

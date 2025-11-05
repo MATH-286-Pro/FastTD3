@@ -534,7 +534,7 @@ class IsaacVelocityFlatUnitreeGo2Args(IsaacLabArgs):
     env_name: str = "Isaac-Velocity-Flat-Unitree-Go2-v0"
     num_steps: int = 8
     num_updates: int = 4
-    total_timesteps: int = 50000
+    total_timesteps: int = 100000
     compile: bool = False  # Disable compile to avoid Triton compilation issues
 
 @dataclass
@@ -542,5 +542,5 @@ class IsaacVelocityFlatUnitreeGo2CompNormArgs(IsaacLabArgs):
     env_name: str = "Isaac-Velocity-Flat-Unitree-Go2-Comp-Norm-v0"
     num_steps: int = 8
     num_updates: int = 4
-    total_timesteps: int = 50000
+    total_timesteps: int = 100000
     compile: bool = False  # Disable compile to avoid Triton compilation issues
